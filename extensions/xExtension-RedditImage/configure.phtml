@@ -1,0 +1,53 @@
+<form action="<?php echo _url('extension', 'configure', 'e', urlencode($this->getName())); ?>" method="post">
+	<input type="hidden" name="_csrf" value="<?php echo FreshRSS_Auth::csrfToken(); ?>" />
+	<div class="form-group">
+		<label class="group-name" for="image-height"><?php echo _t('ext.reddit_image.image_height'); ?></label>
+		<div class="group-controls">
+            <input type="number" name="image-height" id="image-height" value="<?php echo $this->getImageHeight(); ?>" min="1" max="1000"/>
+            <?php echo _t('ext.reddit_image.image_height_unit'); ?>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="group-controls">
+			<label class="checkbox" for="muted-video">
+				<input type="checkbox" name="muted-video" id="muted-video" value="1" <?= $this->getMutedVideo() ? 'checked=true' : '' ?>/>
+				<?= _t('ext.reddit_image.muted_video'); ?>
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="group-controls">
+			<label class="checkbox" for="display-image">
+				<input type="checkbox" name="display-image" id="display-image" value="1" <?= $this->getDisplayImage() ? 'checked=true' : '' ?>/>
+				<?= _t('ext.reddit_image.display_image'); ?>
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="group-controls">
+			<label class="checkbox" for="display-video">
+				<input type="checkbox" name="display-video" id="display-video" value="1" <?= $this->getDisplayVideo() ? 'checked=true' : '' ?>/>
+				<?= _t('ext.reddit_image.display_video'); ?>
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="group-controls">
+			<label class="checkbox" for="display-original">
+				<input type="checkbox" name="display-original" id="display-original" value="1" <?= $this->getDisplayOriginal() ? 'checked=true' : '' ?>/>
+				<?= _t('ext.reddit_image.display_original'); ?>
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group form-actions">
+		<div class="group-controls">
+			<button type="submit" class="btn btn-important"><?php echo _t('gen.action.submit'); ?></button>
+			<button type="reset" class="btn"><?php echo _t('gen.action.cancel'); ?></button>
+		</div>
+	</div>
+</form>
